@@ -19,13 +19,13 @@
 
 <body>
     <div class="wrapper">
-        {% cache 20 header %}
+        {% cache 30 header %}
         {% include 'inc/_header.html'%}
         {% endcache %}
 
         {% block content %}{% endblock %}
 
-        {% cache 20 footer %}
+        {% cache 30 footer %}
         {% include 'inc/_footer.html' %}
         {% endcache %}
     </div>
