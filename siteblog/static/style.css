@@ -244,6 +244,9 @@ section.blog-post-area h4 span.author-name {
 }
 
 .blog-post-area .pegination .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -253,7 +256,9 @@ section.blog-post-area h4 span.author-name {
     border: 1px solid #448aff;
     border-radius: 50%;
     color: #448aff;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
     font-weight: 400;
@@ -750,3 +755,4 @@ section.blog-post-area h4 span.author-name {
     font-size: 15px;
     font-weight: 500;
 }
+
