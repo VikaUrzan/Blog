@@ -22,6 +22,9 @@ class Tag(models.Model):
     title = models.CharField(max_length=50, verbose_name='Название тега')
     slug = models.SlugField(max_length=50, verbose_name='Url', unique=True)
 
+    def get_absolute_url(self):
+        return reverse('tag', kwargs={'slug': self.slug})
+
     def __str__(self):
         return self.title
 
