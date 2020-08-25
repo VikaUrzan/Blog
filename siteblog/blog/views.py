@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
-from .models import Post, Category
+from .models import Post, Category,Tag
 from django.core.paginator import Paginator
 from django.db.models import F
 
@@ -42,4 +42,19 @@ class GetPost(DetailView):
         self.object.views = F('views') + 1
         self.object.save()
         self.object.refresh_from_db()
+        return context
+
+
+class PostByTag(ListView):
+    template_name = 'blog/home_blog.html'
+    context_object_name = 'posts'
+    paginate_by = 1
+    allow_empty = False
+
+    def get_queryset(self):
+        return Post.objects.filter(tags__slug = self.kwargs['slug'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Записи по тегу: ' + str( Tag.objects.get(slug =self.kwargs['slug']))
         return context
