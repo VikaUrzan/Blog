@@ -70,13 +70,12 @@
     <div class="pegination">
         <div class="nav-links">
             {% for p in page_obj.paginator.page_range %}
-            {% if page_obj.number == p %}
-            <span class="page-numbers current"> {{ p }}</span>
-            {% else %}
-            <a class="page-numbers" href="?page={{ p }}">{{ p }}</a>
-            {% endif %}
+                {% if page_obj.number == p %}
+                <span class="page-numbers current"> {{ p }}</span>
+                {% else %}
+                <a class="page-numbers" href="?page={{ p }}">{{ p }}</a>
+                {% endif %}
             {% endfor %}
-            <a class="page-numbers" href="?page={{page_obj.next_page_number}}"><i class="fa fa-angle-right" aria-hidden="true"></i> </a>
         </div>
     </div>
     {% endif %}
